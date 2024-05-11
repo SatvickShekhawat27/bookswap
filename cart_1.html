@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .navbar {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    nav {
+        flex: 1;
+        text-align: right;
+    }
+    
+    nav ul {
+        display: inline-block;
+        list-style-type: none;
+    }
+    
+    nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #555;
+    }
+    
+    p {
+        color: #555;
+    }
+    
+    .container {
+        max-width: 1300px;
+        margin: auto;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    
+    .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    .col2 {
+        flex-basis: 50%;
+        min-width: 300px;
+    }
+    
+    .col2 img {
+        max-width: 100%;
+        padding: 50px 0;
+    }
+    
+    .col2 h1 {
+        font-size: 50px;
+        line-height: 60px;
+        margin: 25px 0;
+    }
+    
+    .btn {
+        display: inline-block;
+        background-color: #3c1611;
+        color: #fff;
+        padding: 8px 30px;
+        margin: 30px 0;
+        border-radius: 30px;
+        transition: background 0.5s;
+    }
+    
+    .btn:hover {
+        background: #ecaa58;
+    }
+    
+    .header {
+        background: radial-gradient(#fff, #2e3c4c)
+    }
+    
+    .header .row {
+        margin-top: 70px;
+    }
+    
+    .categories {
+        margin: 70px 0;
+    }
+    
+    .col3 {
+        flex-basis: 10%;
+        min-width: 250px;
+        margin-bottom: 30px;
+        transition: transform 0.5s;
+    }
+    
+    .col3 img {
+        width: 100%;
+    }
+    .col3:hover {
+        transform: translateY(-5px);
+    }
+    
+    .col4 {
+        flex-basis: 20%;
+        padding: 10px;
+        min-width: 200px;
+        margin-bottom: 50px;
+        transition: transform 0.5s;
+    }
+    
+    .col4 img {
+        width: 100%;
+    }
+    
+    .title {
+        text-align: center;
+        margin: 0 auto 80px;
+        position: relative;
+        line-height: 60px;
+        color: #000000;
+    }
+    
+    .title::after {
+        content: '';
+        background: #ff523b;
+        width: 80px;
+        height: 5px;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    h4 {
+        color: #555;
+        font-weight: normal;
+    }
+    
+    .col4 p {
+        font-size: 14px;
+    }
+    
+    .rating .fa {
+        color: #ff523b;
+    }
+    
+    .col4:hover {
+        transform: translateY(-5px);
+    }
+    
+    .offer {
+        background: white;
+        margin-top: 80px;
+        padding: 30px 0;
+    }
+    
+    .col2 .offerimg {
+        padding: 50px;
+    }
+    
+    small {
+        color: #555
+    }
+    
+    .brands {
+        margin: 100px auto;
+    }
+    
+    .col5 {
+        width: 160px;
+    }
+    
+    .col5 img {
+        width: 100%;
+        cursor: pointer;
+        filter: grayscale(100%);
+    }
+    
+    .col5 img:hover {
+        filter: blur(50%);
+    }
+    
+    .footer {
+        background: #000;
+        color: #8a8a8a;
+        font-size: 14px;
+        padding: 60px 0 20px;
+    }
+    
+    .footer p {
+        color: #8a8a8a;
+    }
+    
+    .footer h3 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+    
+    .footercol1,
+    .footercol2,
+    .footercol3,
+    .footercol4 {
+        min-width: 250px;
+        margin-bottom: 20px;
+    }
+    
+    .footercol1 {
+        flex-basis: 30%
+    }
+    
+    .footercol2 {
+        flex: 1;
+        text-align: center;
+    }
+    
+    .footercol2 img {
+        width: 180px;
+        margin-bottom: 20px;
+    }
+    
+    .footercol3 {
+        flex-basis: 12%;
+        text-align: center;
+    }
+    
+    ul {
+        list-style-type: none;
+    }
+    
+    .applogo {
+        margin-top: 20px;
+    }
+    
+    .applogo img {
+        width: 140px;
+    }
+    
+    .footerhr {
+        border: none;
+        background: #b5b5b5;
+        height: 1px;
+        margin: 20px 0;
+    }
+    
+    .Copyright {
+        text-align: center;
+    }
+    
+    .menuicon {
+        width: 28px;
+        margin-left: 20px;
+        display: none;
+    }
+    
+    @media only screen and (max-width: 800px) {
+        nav ul {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            background: #333;
+            width: 100%;
+            overflow: hidden;
+            transition: max-height 0.5;
+        }
+    
+        nav ul li {
+            display: block;
+            margin-right: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    
+        nav ul li a {
+            color: #fff;
+    
+        }
+    
+        .menuicon {
+            display: block;
+            cursor: pointer;
+        }
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .row {
+            text-align: center;
+        }
+    
+        .col2,
+        .col3,
+        .col4 {
+            flex-basis: 100%;
+        }
+    
+        .singleproduct .row {
+            text-align: left;
+        }
+    
+        .singleproduct .col2 {
+            padding: 20px 0;
+        }
+    
+        .singleproduct h1 {
+            font-size: 26px;
+            line-height: 26px;
+        }
+    
+        .cartinfo p {
+            display: none;
+        }
+    }
+    
+    .row2 {
+        justify-content: space-between;
+        margin: 100px auto 50px;
+    }
+    
+    select {
+        border: 1px solid #8a7572;
+        padding: 5px;
+    }
+    
+    select:focus {
+        outline: none;
+    }
+    
+    .pagebtn {
+        margin: 0 auto 80px;
+    }
+    
+    .pagebtn span {
+        display: inline-block;
+        border: 1px solid #ff523b;
+        margin-left: 10px;
+        width: 40px;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+    }
+    
+    .pagebtn span:hover {
+        background: #ff523b;
+        color: #fff;
+    }
+    
+    .singleproduct {
+        margin-top: 80px;
+    }
+    
+    .singleproduct .col2 img {
+        padding: 0;
+        margin-left: 50px;
+    }
+    
+    .singleproduct .col2 {
+        padding: 20px;
+    }
+    
+    .singleproduct h4 {
+        margin: 20px 0;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    
+    .singleproduct input {
+        width: 50px;
+        height: 40px;
+        padding-left: 10px;
+        font-size: 20px;
+        margin-right: 10px;
+        border: 1px solid #ff523b;
+    }
+    
+    input:focus {
+        outline: none;
+    }
+    
+    .singleproduct .fa {
+        color: #ff523b;
+        margin-left: 10px;
+    }
+    
+    .smallimgrow {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .smallimgcol {
+        flex-basis: 24%;
+        cursor: pointer;
+    }
+    
+    .cartpage {
+        margin: 80px auto;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collpase;
+    }
+    
+    .cartinfo {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    th {
+        text-align: left;
+        padding: 5px;
+        color: #fff;
+        background: #ff523b;
+        font-weight: normal;
+    }
+    
+    td {
+        padding: 10px 5px;
+    }
+    
+    td input {
+        width: 40px;
+        height: 30px;
+        padding: 5px;
+    }
+    
+    td a {
+        color: #ff523b;
+        font-size: 12px;
+    }
+    
+    td img {
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
+    }
+    
+    .totalprice {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .totalprice table {
+        border-top: 3px solid #ff523b;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    td:last-child {
+        text-align: right;
+    }
+    
+    th:last-child {
+        text-align: right;
+    }
+    
+    .accountpage {
+        padding: 50px;
+        background: radial-gradient(#fff, #e3eab5);
+    }
+    
+    .formcontainer {
+        background: #fff;
+        width: 300px;
+        height: 400px;
+        position: relative;
+        text-align: center;
+        padding: 20px 0;
+        margin: auto;
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    
+    .formcontainer span {
+        font-weight: bold;
+        padding: 0 10px;
+        color: #555;
+        cursor: pointer;
+        width: 100px;
+        display: inline-block;
+    }
+    
+    .formbtn {
+        display: inline-block;
+    }
+    .formcontainer form{
+        max-width: 300px;
+        padding: 0 20px;
+        position: absolute;
+        top: 130px;
+        transition: transform 1s;
+    }
+    form input{
+        width: 100%;
+        height: 30px;
+        margin: 10px 0;
+        padding: 0 10px;
+        border: 1px solid #ccc;
+    }
+    form .btn{
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        margin: 10px 0;
+    }
+    form .btn:focus{
+        outline: none;
+    }
+    #loginform{
+        left: -300px;
+    }
+    #regform{
+        left: 0;
+    }
+    form a{
+        font-size: 12px;
+    }
+    #Indicator{
+        width: 100px;
+        border: none;
+        background: #ff523b;
+        height: 3px;
+        margin-top: 8px;
+        transform: translateX(100px);
+        transition: transform 1s;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="image2.png" alt="" width="125px">
+            </div>
+            <nav>
+                <ul id="menuitems">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Books</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html">
+                <img src="cart.png" width="30px" height="30px">
+                <img src="menu.png" class="menuicon" onclick="menutoggle()">
+            </a>
+        </div>
+    </div>
+    <div class="smallcontainer cartpage">
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Cart items will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <div class="totalprice">
+            <table>
+                <tr>
+                    <td>
+                    <td>Subtotal</td>
+                    <td id="subtotal">₹ 0</td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footercol1">
+                    <h3>
+                        Download our App
+                    </h3>
+                    <p>Download app for Android and ios mobile phone.</p>
+                    <div class="applogo">
+                        <img src="play-store.png">
+                        <img src="app-store.png">
+                    </div>
+                </div>
+                <div class="footercol2">
+                    <img src="image2.png">
+                    <p>Our website aims to fulfill students' needs by offering books for rent at affordable prices.
+                    </p>
+                </div>
+                <div class="footercol3">
+                    <h3>Useful Links:</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footercol4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li>Instagram</li>
+                        <li>LinkedIn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="Copyright">Copyright 2024</p>
+    </div>
+    <script>
+        var menuitems = document.getElementById("menuitems");
+        menuitems.style.maxHeight = "0px";
+        function menutoggle() {
+            if (menuitems.style.maxHeight == "0px") {
+                menuitems.style.maxHeight = "200px";
+            }
+            else {
+                menuitems.style.maxHeight = "0px";
+            }
+        }
+
+        // Retrieve cart items from local storage
+var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+var cartTableBody = document.querySelector('#cartTable tbody');
+var subtotalElement = document.getElementById('subtotal');
+
+// Iterate over cart items and dynamically generate table rows
+cartItems.forEach(function(item, index) {
+    var row = document.createElement('tr');
+    row.innerHTML = `
+        <td>
+            <div class="cartinfo">
+                <img src="${item.image}">
+                <div>
+                    <p>${item.name}</p>
+                    <small>Price: &#8377; ${item.rentPrice}</small>
+                    <br>
+                    <a href="#" onclick="removeItem(${index}); return false;">Remove</a>
+                </div>
+            </div>
+        </td>
+        <td><input type="number" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)"></td>
+        <td>&#8377; ${item.rentPrice * item.quantity}</td>
+    `;
+    cartTableBody.appendChild(row);
+});
+// Calculate subtotal
+var subtotal = cartItems.reduce(function(total, item) {
+    return total + (item.rentPrice * item.quantity);
+}, 0);
+subtotalElement.textContent = `₹ ${subtotal}`;
+
+// Function to update quantity in the cart
+function updateQuantity(index, quantity) {
+    // Retrieve cart items from local storage
+    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Update quantity of the corresponding item
+    cartItems[index].quantity = parseInt(quantity);
+
+    // Update localStorage with modified cartItems
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    // Reload the page to reflect the changes
+    location.reload();
+// Function to remove item from cart
+}
+function removeItem(index) {
+    // Retrieve cart items from local storage
+    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Remove item from cartItems array
+    cartItems.splice(index, 1);
+
+    // Update localStorage with modified cartItems
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    // Reload the page to reflect the changes
+    location.reload();
+}
+
+    </script>
+</body>
+
+</html>

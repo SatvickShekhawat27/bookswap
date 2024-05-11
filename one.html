@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Product Submission Form</title>
+    
+    </head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0; 
+       
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, #35234b 0%, transparent 70%),
+    radial-gradient(ellipse at 60% 20%, #2975bf 0%, transparent 70%),
+    radial-gradient(ellipse at 100% 20%, #3d54b1 0%, transparent 70%),
+    radial-gradient(ellipse at 100% 100%, #9f3c54 0%, transparent 70%),
+    radial-gradient(ellipse at 20% 100%, #362d6f 0%, transparent 70%);
+  background-blend-mode:screen;
+      }
+      .container1 {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .container2 {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+      #photo-container,
+      #video-container {
+        width: 300px;
+        height: 200px;
+        border: 2px dashed #ccc;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #photo-container {
+        background-color: #f0f0f0;
+      }
+      #video-container {
+        background-color: #e0e0e0;
+      }
+    .choose{
+      background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+.choose:hover{
+   background-color: #0056b3;
+}
+
+    </style>
+  
+  <body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.htm"><img src="image2.png" alt="" width="125px"></a>
+                </div>
+                <nav>
+                    <ul id="menuitems">
+                        <li><a href="index.htm">Home</a></li>
+                        <li><a href="products.htm">Books</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="account.htm">Account</a></li>
+                    </ul>
+                </nav>
+                <a href="cart.htm">
+                    <img src="cart.png" width="30px" height="30px">
+                    <img src="menu.png" class="menuicon" onclick="menutoggle()">
+                </a>
+            </div>
+    <div class="container1">
+      <h1>Submit Your Product Details</h1>
+      <form action="submit_product.php" method="post">
+        <label for="product_name">Product Name:</label>
+        <input type="text" id="product_name" name="product_name" required />
+
+        <label for="product_description">Product Description:</label>
+        <textarea
+          id="product_description"
+          name="product_description"
+          rows="5"
+          required
+        ></textarea>
+
+        <label for="product_price">Product Price:</label>
+        <input type="text" id="product_price" name="product_price" required />
+
+      <div
+      id="photo-container"
+      ondrop="drop(event, 'photo')"
+      ondragover="allowDrop(event)"
+    >
+      <p>Drop Photo Here</p>
+    </div>
+    <div
+      id="video-container"
+      ondrop="drop(event, 'video')"
+      ondragover="allowDrop(event)"
+    >
+      <p>Drop Video Here</p>
+    </div>
+    <div>
+      <input
+        type="file"
+        id="fileInput"
+        style="display: none"
+        accept="image/*, video/*"
+      />
+      <button onclick="chooseFile()" class="choose">Choose File</button>
+    </div>
+
+<br>
+        <label for="product_name">Name:</label>
+        <input type="text" id="product_name" name="product_name" required />
+        <label for="product_name">Address:</label>
+        <input type="text" id="product_name" name="product_name" required />
+        <label for="product_price">Contact Number:</label>
+        <input type="number" id="product_price" name="product_price" required />
+
+        <input type="submit" value="Submit" />
+      </form>
+      </div>
+       <div class="container2">
+      <h1>Details Of Interested One</h1>
+      <form action="submit_product.php" method="post">
+        <label for="product_name">Name:</label>
+        <input type="text" id="product_name" name="product_name" required />
+        <label for="product_name">Address:</label>
+        <input type="text" id="product_name" name="product_name" required />
+        <label for="product_price">Contact Number:</label>
+        <input type="number" id="product_price" name="product_price" required />
+        <label for="product_price">Email:</label>
+        <input type="text" id="product_price" name="product_price" required />
+
+        <label for="product_description">Desired Product:</label>
+        <textarea
+          id="product_description"
+          name="product_description"
+          rows="5"
+          required
+        ></textarea>
+
+        
+
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footercol1">
+                    <h3>
+                        Download our App
+                    </h3>
+                    <p>Download app for Android and ios mobile phone.</p>
+                    <div class="applogo">
+                        <img src="play-store.png">
+                        <img src="app-store.png">
+                    </div>
+                </div>
+                <div class="footercol2">
+                    <img src="image2.png">
+                    <p>Our website aims to fulfill students' needs by offering books for rent at affordable prices.
+                    </p>
+                </div>
+                <div class="footercol3">
+                    <h3>Useful Links:</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footercol4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li>Instagram</li>
+                        <li>LinkedIn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="Copyright">Copyright 2024</p>
+    </div>
+    </div>
+    <script>
+      function allowDrop(event) {
+        event.preventDefault();
+      }
+
+      function drop(event, type) {
+        event.preventDefault();
+        const files = event.dataTransfer.files;
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          if (type === "photo" && file.type.startsWith("image")) {
+            handleFile(file, type);
+          } else if (type === "video" && file.type.startsWith("video")) {
+            handleFile(file, type);
+          } else {
+            alert(
+              "Please drop a photo into the photo container or a video into the video container."
+            );
+          }
+        }
+      }
+
+      function handleFile(file, type) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          const container = document.getElementById(`${type}-container`);
+          container.innerHTML = `<${type === "photo" ? "img" : "video"} src="${
+            event.target.result
+          }" style="max-width: 100%; max-height: 100%;" controls>`;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function chooseFile() {
+        document.getElementById("fileInput").click();
+      }
+
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function () {
+          const file = this.files[0];
+          const type = file.type.startsWith("image")
+            ? "photo"
+            : file.type.startsWith("video")
+            ? "video"
+            : "";
+          if (type) {
+            handleFile(file, type);
+          } else {
+            alert("Please select a valid photo or video file.");
+          }
+        });
+    </script>
+  </body>
+</html>
